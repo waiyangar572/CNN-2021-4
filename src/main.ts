@@ -50,6 +50,8 @@ function generateQuiz(ind: number): {title: string, sentence: string, answers: s
 	}
 
 	sentence = wordsForQuiz.join(" ");
+	console.log({title: originalTitle, sentence: sentence, answers: answers});
+	
 	return {title: originalTitle, sentence: sentence, answers: answers};
 }
 
