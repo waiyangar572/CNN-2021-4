@@ -4,7 +4,9 @@
     "watch": "webpack -w"
   },
   "devDependencies": {
+    "@types/howler": "^2.2.4",
     "@types/jquery": "^3.5.13",
+    "howler": "^2.2.3",
     "jquery": "^3.6.0",
     "ts-loader": "^9.2.6",
     "typescript": "^4.5.5",
