@@ -17,12 +17,12 @@ const Sentences: string[] = [
 	"A pioneer in both modern computing and the LGBT community is being honored in England. Alan Turing will be the face of Britain's new £50 note. Turing was the codebreaker and visionary mathematician who cracked Germany's coded messages during World War II. He also played a pivotal role in developing computers. He was also convicted under Victorian homophobic laws, which eventually led him to commit suicide. The governor of the Bank of England called Turing \"a giant on whose shoulders so many now stand.\" The new notes will appear by the end of 2021.",
 ];
 const sounds: readonly Howl[] = [
-	new Howl({src:["News11.cda"],preload:true,onend:()=>onSoundButton()}),
-	new Howl({src:["News12.cda"],preload:true,onend:()=>onSoundButton()}),
-	new Howl({src:["News13.cda"],preload:true,onend:()=>onSoundButton()}),
-	new Howl({src:["News15.cda"],preload:true,onend:()=>onSoundButton()}),
-	new Howl({src:["News14.cda"],preload:true,onend:()=>onSoundButton()}),
-	new Howl({src:["News16.cda"],preload:true,onend:()=>onSoundButton()}),
+	new Howl({src:["News11.mp3"],preload:true,onend:()=>onSoundButton()}),
+	new Howl({src:["News12.mp3"],preload:true,onend:()=>onSoundButton()}),
+	new Howl({src:["News13.mp3"],preload:true,onend:()=>onSoundButton()}),
+	new Howl({src:["News15.mp3"],preload:true,onend:()=>onSoundButton()}),
+	new Howl({src:["News14.mp3"],preload:true,onend:()=>onSoundButton()}),
+	new Howl({src:["News16.mp3"],preload:true,onend:()=>onSoundButton()}),
 ] as const;
 
 function showQuiz() {
