@@ -19,7 +19,7 @@ function showQuiz() {
 	const rnd = Math.floor(Math.random()*Titles.length);
 	
 	let {title, sentence, answers} = generateQuiz(rnd);
-	console.log(title, sentence, answers);
+	console.log(rnd, title, sentence, answers);
 	
 	$("#title").text(title);
 	$('#sentence').text(sentence);
