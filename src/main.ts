@@ -66,15 +66,16 @@ function generateQuiz(ind: number): {title: string, sentence: string, answers: s
 	return {title: originalTitle, sentence: sentence, answers: answers};
 }
 
-let isVisibleAnswers = true;
+let isVisibleAnswers = false;
+$('#answers').css('display','none');
 function onTurningAnswerButton() {
 	if (isVisibleAnswers) {
 		$('#turningAnswerButton').text('answer');
-		$('answers').css('display','none');
+		$('#answers').css('display','none');
 		isVisibleAnswers = false;
 	} else {
 		$('#turningAnswerButton').text('hide');
-		$('answers').css('display','block');
+		$('#answers').css('display','block');
 		isVisibleAnswers = true;
 	}
 }
