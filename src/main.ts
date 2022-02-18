@@ -24,6 +24,7 @@ function showQuiz() {
 	console.log(rnd, title, sentence, answers);
 	
 	$("#title").text(title);
+	$("#title").text(title);
 	$('#sentence').text(sentence);
 	$('#answers').text(answers.join(","));
 }
