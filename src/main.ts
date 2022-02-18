@@ -1,3 +1,5 @@
+import { Howl } from "howler";
+
 const Titles: string[] = [
 	"Photographic Proof",
 	"Rare Victory",
@@ -14,6 +16,14 @@ const Sentences: string[] = [
 	"A Muslim supermodel is making history with her appearance in the Sports Illustrated swimsuit edition. Halima Aden is the first model to wear a hijab and burkini in the magazine. Three years ago, she was the first contestant in the Miss Minnesota USA pageant to wear a hijab and burkini. At that time, she told CNN that many Muslim women don't feel they fit society's standard of beauty. She said her message is it's OK to be different and that being different is beautiful too.",
 	"A pioneer in both modern computing and the LGBT community is being honored in England. Alan Turing will be the face of Britain's new £50 note. Turing was the codebreaker and visionary mathematician who cracked Germany's coded messages during World War II. He also played a pivotal role in developing computers. He was also convicted under Victorian homophobic laws, which eventually led him to commit suicide. The governor of the Bank of England called Turing \"a giant on whose shoulders so many now stand.\" The new notes will appear by the end of 2021.",
 ];
+const sounds: readonly Howl[] = [
+	new Howl({src:["News11.cda"],preload:true,onend:()=>onSoundButton()}),
+	new Howl({src:["News12.cda"],preload:true,onend:()=>onSoundButton()}),
+	new Howl({src:["News13.cda"],preload:true,onend:()=>onSoundButton()}),
+	new Howl({src:["News15.cda"],preload:true,onend:()=>onSoundButton()}),
+	new Howl({src:["News14.cda"],preload:true,onend:()=>onSoundButton()}),
+	new Howl({src:["News16.cda"],preload:true,onend:()=>onSoundButton()}),
+] as const;
 
 function showQuiz() {
 	const rnd = Math.floor(Math.random()*Titles.length);
@@ -26,6 +36,7 @@ function showQuiz() {
 	$("#title").text(title);
 	$('#sentence').text(sentence);
 	$('#answers').text(answers.join(", "));
+	currentSound = sounds[rnd];
 }
 
 function generateQuiz(ind: number): {title: string, sentence: string, answers: string[]} {
@@ -80,5 +91,20 @@ function onTurningAnswerButton() {
 	}
 }
 
+let isPlaying = false;
+let currentSound: Howl;
+function onSoundButton() {
+	if (isPlaying) {
+		$("#soundButton").text("play");
+		if(currentSound.playing())currentSound.pause();
+		isPlaying = false;
+	} else {
+		$("#soundButton").text("pause");
+		currentSound.play();
+		isPlaying = true;
+	}
+}
+
 $(document).on('click','#genQuizButton',()=>showQuiz());
 $(document).on('click','#turningAnswerButton',()=>onTurningAnswerButton());
+$(document).on('click','#soundButton',()=>onSoundButton());
