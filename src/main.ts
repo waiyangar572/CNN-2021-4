@@ -18,6 +18,8 @@ const Sentences: string[] = [
 function showQuiz() {
 	const rnd = Math.floor(Math.random()*Titles.length);
 	
+	console.log('aaa');
+	
 	let {title, sentence, answers} = generateQuiz(rnd);
 	console.log(rnd, title, sentence, answers);
 	
