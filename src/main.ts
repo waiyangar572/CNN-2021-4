@@ -25,7 +25,7 @@ function showQuiz() {
 	
 	$("#title").text(title);
 	$('#sentence').text(sentence);
-	$('#answers').text(answers.join(","));
+	$('#answers').text(answers.join(", "));
 }
 
 function generateQuiz(ind: number): {title: string, sentence: string, answers: string[]} {
