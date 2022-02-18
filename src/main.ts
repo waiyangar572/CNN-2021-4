@@ -36,6 +36,9 @@ function generateQuiz(ind: number): {title: string, sentence: string, answers: s
 	let answers = [] as string[];
 
 	const words = originalSentence.split(" ");
+	console.log(originalSentence);
+	console.log(words);
+	
 	const difficulty = $('#difficulty').val() as number;
 	const quizNum = Math.floor(words.length/difficulty);
 
