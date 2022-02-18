@@ -60,6 +60,8 @@ function generateQuiz(ind: number): {title: string, sentence: string, answers: s
 
 	sentence = wordsForQuiz.join(" ");
 	console.log({title: originalTitle, sentence: sentence, answers: answers});
+
+	answers = answerIndexes.map((ind)=>words[ind]);
 	
 	return {title: originalTitle, sentence: sentence, answers: answers};
 }
