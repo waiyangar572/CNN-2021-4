@@ -18,4 +18,51 @@ const Sentences: string[] = [
 function showQuiz() {
 	const rnd = Math.floor(Math.random()*Titles.length);
 	
+	let {title, sentence, answers} = generateQuiz(rnd);
+	$("#title").text(title);
+	$('#sentence').text(sentence);
+	$('#answers').text(answers.join(","));
 }
+
+function generateQuiz(ind: number): {title: string, sentence: string, answers: string[]} {
+	const originalTitle = Titles[ind];
+	const originalSentence = Sentences[ind];
+
+	let sentence = "";
+	let answers = [] as string[];
+
+	const words = originalSentence.split(" ");
+	const difficulty = $('#difficulty').val() as number;
+	const quizNum = Math.floor(words.length/difficulty);
+
+	let answerIndexes = [] as number[];
+
+	while (answerIndexes.length < quizNum) {
+		let rnd = Math.floor(Math.random()*words.length);
+		if (!answerIndexes.includes(rnd)) {
+			answerIndexes.push(rnd);
+		}
+	}
+	let wordsForQuiz = [].concat(answerIndexes);
+	for (const answerIndex of answerIndexes) {
+		const replaceStr = (words[answerIndex].match(/.*\./))?"( ).":"( )"
+		wordsForQuiz.splice(answerIndex,answerIndex,replaceStr);
+	}
+
+	sentence = wordsForQuiz.join(" ");
+	return {title: originalTitle, sentence: sentence, answers: answers};
+}
+
+let isVisibleAnswers = false;
+function onTurningAnswerButton() {
+	if (isVisibleAnswers) {
+		$('#turningAnswerButton').text('hide');
+		$('answers').css('display','none');
+	} else {
+		$('#turningAnswerButton').text('answer');
+		$('answers').css('display','block');
+	}
+}
+
+$(document).on('click','#genQuizButton',showQuiz);
+$(document).on('click','#turningAnswerButton',onTurningAnswerButton);
