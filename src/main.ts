@@ -66,5 +66,5 @@ function onTurningAnswerButton() {
 	}
 }
 
-$(document).on('click','#genQuizButton',showQuiz);
-$(document).on('click','#turningAnswerButton',onTurningAnswerButton);
+$(document).on('click','#genQuizButton',()=>showQuiz());
+$(document).on('click','#turningAnswerButton',()=>onTurningAnswerButton());
