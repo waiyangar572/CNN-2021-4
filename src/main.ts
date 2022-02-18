@@ -48,17 +48,16 @@ function generateQuiz(ind: number): {title: string, sentence: string, answers: s
 		let rnd = Math.floor(Math.random()*words.length);
 		if (!answerIndexes.includes(rnd)) {
 			answerIndexes.push(rnd);
-			answers.push(words[rnd]);
 		}
 	}
 	let wordsForQuiz = words.slice();
-	console.log(wordsForQuiz,answerIndexes);
 	answerIndexes.sort((a,b)=>a-b);
 	console.log(wordsForQuiz,answerIndexes);
 	
 	for (const answerIndex of answerIndexes) {
 		const replaceStr = (words[answerIndex].match(/.*\./))?"( ).":"( )"
 		wordsForQuiz.splice(answerIndex,1,replaceStr);
+		answers.push(words[answerIndex]);
 	}
 
 	sentence = wordsForQuiz.join(" ");
