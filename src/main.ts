@@ -50,7 +50,7 @@ function generateQuiz(ind: number): {title: string, sentence: string, answers: s
 			answerIndexes.push(rnd);
 		}
 	}
-	let wordsForQuiz = [].concat(answerIndexes);
+	let wordsForQuiz = words.slice();
 	console.log(wordsForQuiz);
 	
 	for (const answerIndex of answerIndexes) {
