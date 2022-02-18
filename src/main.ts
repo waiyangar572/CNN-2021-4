@@ -37,6 +37,7 @@ function showQuiz() {
 	$('#sentence').text(sentence);
 	$('#answers').text(answers.join(", "));
 	currentSound = sounds[rnd];
+	currentSound.seek(0);
 }
 
 function generateQuiz(ind: number): {title: string, sentence: string, answers: string[]} {
