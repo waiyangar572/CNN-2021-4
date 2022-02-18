@@ -48,6 +48,7 @@ function generateQuiz(ind: number): {title: string, sentence: string, answers: s
 		let rnd = Math.floor(Math.random()*words.length);
 		if (!answerIndexes.includes(rnd)) {
 			answerIndexes.push(rnd);
+			answers.push(words[rnd]);
 		}
 	}
 	let wordsForQuiz = words.slice();
@@ -60,8 +61,6 @@ function generateQuiz(ind: number): {title: string, sentence: string, answers: s
 
 	sentence = wordsForQuiz.join(" ");
 	console.log({title: originalTitle, sentence: sentence, answers: answers});
-
-	answers = answerIndexes.map((ind)=>words[ind]);
 	
 	return {title: originalTitle, sentence: sentence, answers: answers};
 }
