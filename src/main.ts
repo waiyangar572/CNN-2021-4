@@ -40,7 +40,7 @@ function generateQuiz(ind: number): {title: string, sentence: string, answers: s
 	console.log(words);
 	
 	const difficulty = $('#difficulty').val() as number;
-	const quizNum = Math.floor(words.length/difficulty);
+	const quizNum = difficulty;
 
 	let answerIndexes = [] as number[];
 
