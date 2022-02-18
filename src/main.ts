@@ -51,7 +51,7 @@ function generateQuiz(ind: number): {title: string, sentence: string, answers: s
 		}
 	}
 	let wordsForQuiz = words.slice();
-	console.log(wordsForQuiz);
+	console.log(wordsForQuiz,answerIndexes);
 	
 	for (const answerIndex of answerIndexes) {
 		const replaceStr = (words[answerIndex].match(/.*\./))?"( ).":"( )"
