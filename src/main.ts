@@ -67,7 +67,7 @@ function generateQuiz(ind: number): {title: string, sentence: string, answers: s
 	console.log(wordsForQuiz,answerIndexes);
 	
 	for (const answerIndex of answerIndexes) {
-		const replaceStr = (words[answerIndex].match(/.*([\.,])/))?"( )$1":"( )"
+		const replaceStr = (words[answerIndex].match(/.*([\.,])/))?"( )"+words[answerIndex].slice(-1):"( )"
 		wordsForQuiz.splice(answerIndex,1,replaceStr);
 		answers.push(words[answerIndex]);
 	}
