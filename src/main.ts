@@ -65,14 +65,16 @@ function generateQuiz(ind: number): {title: string, sentence: string, answers: s
 	return {title: originalTitle, sentence: sentence, answers: answers};
 }
 
-let isVisibleAnswers = false;
+let isVisibleAnswers = true;
 function onTurningAnswerButton() {
 	if (isVisibleAnswers) {
-		$('#turningAnswerButton').text('hide');
-		$('answers').css('display','none');
-	} else {
 		$('#turningAnswerButton').text('answer');
+		$('answers').css('display','none');
+		isVisibleAnswers = false;
+	} else {
+		$('#turningAnswerButton').text('hide');
 		$('answers').css('display','block');
+		isVisibleAnswers = true;
 	}
 }
 
