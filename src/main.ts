@@ -56,7 +56,7 @@ function generateQuiz(ind: number): {title: string, sentence: string, answers: s
 	
 	for (const answerIndex of answerIndexes) {
 		const replaceStr = (words[answerIndex].match(/.*\./))?"( ).":"( )"
-		wordsForQuiz.splice(answerIndex,answerIndex,replaceStr);
+		wordsForQuiz.splice(answerIndex,1,replaceStr);
 	}
 
 	sentence = wordsForQuiz.join(" ");
