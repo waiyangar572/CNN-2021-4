@@ -24,7 +24,6 @@ function showQuiz() {
 	console.log(rnd, title, sentence, answers);
 	
 	$("#title").text(title);
-	$("#title").text("1");
 	$('#sentence').text(sentence);
 	$('#answers').text(answers.join(","));
 }
@@ -49,6 +48,8 @@ function generateQuiz(ind: number): {title: string, sentence: string, answers: s
 		}
 	}
 	let wordsForQuiz = [].concat(answerIndexes);
+	console.log(wordsForQuiz);
+	
 	for (const answerIndex of answerIndexes) {
 		const replaceStr = (words[answerIndex].match(/.*\./))?"( ).":"( )"
 		wordsForQuiz.splice(answerIndex,answerIndex,replaceStr);
