@@ -34,7 +34,7 @@ function showQuiz() {
 	console.log(rnd, title, sentence, answers);
 	
 	$("#title").text(title);
-	$('#sentence').text(sentence);
+	$('#sentence').html(sentence);
 	$('#answers').text(answers.join(", "));
 	currentSound = sounds[rnd];
 	currentSound.seek(0);
