@@ -20,8 +20,8 @@ const sounds: readonly Howl[] = [
 	new Howl({src:["News11.mp3"],preload:true,onend:()=>onSoundButton()}),
 	new Howl({src:["News12.mp3"],preload:true,onend:()=>onSoundButton()}),
 	new Howl({src:["News13.mp3"],preload:true,onend:()=>onSoundButton()}),
-	new Howl({src:["News15.mp3"],preload:true,onend:()=>onSoundButton()}),
 	new Howl({src:["News14.mp3"],preload:true,onend:()=>onSoundButton()}),
+	new Howl({src:["News15.mp3"],preload:true,onend:()=>onSoundButton()}),
 	new Howl({src:["News16.mp3"],preload:true,onend:()=>onSoundButton()}),
 ] as const;
 
@@ -67,9 +67,20 @@ function generateQuiz(ind: number): {title: string, sentence: string, answers: s
 	console.log(wordsForQuiz,answerIndexes);
 	
 	for (const answerIndex of answerIndexes) {
-		const replaceStr = (words[answerIndex].match(/.*([\.,])/))?"( )"+words[answerIndex].slice(-1):"( )"
+		let replaceStr = "(<input type=\"text\"/>)"
+		let answerStr = words[answerIndex];
+		const initialChar = words[answerIndex].slice(0,1);
+		const finalChar = words[answerIndex].slice(-1);
+		if (initialChar=='"') {
+			replaceStr = '"'+replaceStr;
+			answerStr = answerStr.slice(1);
+		}
+		if (finalChar=='"' || finalChar=="," || finalChar==".") {
+			replaceStr = replaceStr + finalChar;
+			answerStr = answerStr.slice(0,-1);
+		}
 		wordsForQuiz.splice(answerIndex,1,replaceStr);
-		answers.push(words[answerIndex]);
+		answers.push(answerStr);
 	}
 
 	sentence = wordsForQuiz.join(" ");
